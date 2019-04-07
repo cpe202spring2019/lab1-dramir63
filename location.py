@@ -17,7 +17,7 @@ def main():
     loc2 = Location("Paris", 48.9, 2.4)
     loc3 = Location("SLO", 35.3, -120.7)
     loc4 = loc1
-    #loc5 = Location("Imagine Land", 20, 40)
+    loc5 = Location("Imagine Land", 20, 40)
 
     print (loc5)
     print("Location 1:",loc1)
@@ -34,7 +34,7 @@ def main():
     print(loc2 in locations)
     print(loc3 in locations)
     print(loc4 in locations)
-    #print(loc5 in locations)
+    print(loc5 in locations)
 
 if __name__ == "__main__":
     main()

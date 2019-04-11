@@ -11,7 +11,7 @@ class TestLab1(unittest.TestCase):
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
 
-    def test_max_list_iter(self):
+    def test_max_list_iter_beg_end(self):
         #Test if number is at beginning and end
         test_list = [4, 1, 4]
         self.assertEqual(max_list_iter(test_list), 4)

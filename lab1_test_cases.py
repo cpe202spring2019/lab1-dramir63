@@ -145,6 +145,13 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 0 )
 
 
+    def test_bin_search_empty(self):
+        #Test if list is empty
+        list_val = []
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(0, 0, len(list_val) - 1, list_val), None)
+
 
     def test_bin_search_last(self):
         # Test if target is last number in list

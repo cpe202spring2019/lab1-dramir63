@@ -11,6 +11,11 @@ class TestLab1(unittest.TestCase):
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
 
+    def test_max_list_iter(self):
+        #Test if number is at beginning and end
+        test_list = [4, 1, 4]
+        self.assertEqual(max_list_iter(test_list), 4)
+
     def test_max_list_iter_last(self):
         # Test if last number is max
         tlist = [1, 2, 3]
@@ -37,10 +42,6 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(max_list_iter(tlist), None)
 
 
-    #def test_max_list_iter_bug(self):
-      #  #Test for bug / failure:
-       # blist = ["string", "bug"]
-       # self.assertEqual(max_list_iter(blist), None)
 
     def test_reverse_rec_none(self):
         # Test if list is None
@@ -53,6 +54,10 @@ class TestLab1(unittest.TestCase):
         # Test if function works as intended
         self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
 
+    def test_reverse_rec_dups(self):
+        #Test if list has duplicates
+        self.assertEqual(reverse_rec([3, 4, 4]), [4, 4, 3])
+
 
     def test_reverse_rec_all(self):
         # Test if all numbers in list are same
@@ -63,6 +68,9 @@ class TestLab1(unittest.TestCase):
         # Test if all but two numbers are the same
         self.assertEqual(reverse_rec([1, 0, 0]),[0, 0, 1])
 
+    def test_reverse_rec_blank(self):
+        #Test if list is blank
+        self.assertEqual(reverse_rec([]), [])
 
     def test_reverse_rec_negative(self):
         # Test if list has a negative number
@@ -70,11 +78,27 @@ class TestLab1(unittest.TestCase):
 
 
     def test_bin_search(self):
-        # Test if functions works as intended
+        # Test if functions works as intended(lower end)
         list_val =[0,1,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4 )
+
+    def test_bin_search_higher_quart(self):
+        #Test if number is on high end of list
+        list_val = [0,1,2,3,4,7,8,9,10]
+        self.assertEqual(bin_search(8, 0, len(list_val) - 1, list_val), 6)
+
+
+    def test_bin_search_same(self):
+        #Test if high and low are the same:
+        list_val = [0, 1, 2, 3, 4, 7, 8, 9, 10]
+        self.assertEqual(bin_search(3, 1, 1, list_val), None)
+
+    def test_bin_search_low(self):
+        # Test if low is higher than high
+        list_val = [0, 1, 2, 3, 4, 7, 8, 9, 10]
+        self.assertEqual(bin_search(3, 7, 4, list_val), None)
 
 
     def test_bin_search_first(self):

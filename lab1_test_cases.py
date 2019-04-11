@@ -37,6 +37,11 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(max_list_iter(tlist), None)
 
 
+    #def test_max_list_iter_bug(self):
+      #  #Test for bug / failure:
+       # blist = ["string", "bug"]
+       # self.assertEqual(max_list_iter(blist), None)
+
     def test_reverse_rec_none(self):
         # Test if list is None
         rlist = None
@@ -80,6 +85,7 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 0 )
 
 
+
     def test_bin_search_last(self):
         # Test if target is last number in list
         list_val =[0,1,2,3,4,7,8,9,10]
@@ -95,12 +101,20 @@ class TestLab1(unittest.TestCase):
         high = len(list_val) - 1
         self.assertEqual(bin_search(15, 0, len(list_val) - 1, list_val), None)
 
+    def test_bin_search_out(self):
+        #Test if value is out of index bounds
+        list_val = [0, 2, 3, 4, 7, 8, 9, 10]
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(1, low, high, list_val), None)
 
     def test_bin_search_none(self):
         # Test if list is None
         blist = None
         with self.assertRaises(ValueError):  # used to check for exception
             bin_search(5, 0, 5, blist)
+
+
 
 if __name__ == "__main__":
         unittest.main()

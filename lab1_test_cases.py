@@ -31,6 +31,11 @@ class TestLab1(unittest.TestCase):
         tlist = [0, 0, 0]
         self.assertEqual(max_list_iter(tlist), 0)
 
+    def test_max_list_iter_solo(self):
+        #Test with list of one element
+        one = [5]
+        self.assertEqual(max_list_iter(one), 5)
+
     def test_max_list_iter_negative(self):
         # Test if numbers in list are negative
         tlist = [-2, -1, -3]
@@ -41,6 +46,11 @@ class TestLab1(unittest.TestCase):
         tlist = []
         self.assertEqual(max_list_iter(tlist), None)
 
+
+
+    def test_reverse_rec_solo(self):
+        #Test with list of one item
+        self.assertEqual(reverse_rec([3]),[3])
 
 
     def test_reverse_rec_none(self):
@@ -137,6 +147,12 @@ class TestLab1(unittest.TestCase):
         blist = None
         with self.assertRaises(ValueError):  # used to check for exception
             bin_search(5, 0, 5, blist)
+
+    def test_bin_search_solo(self):
+        #Test with list with one element
+        solo = [2]
+        self.assertEqual(bin_search(1, 0, len(solo) - 1, solo), None)
+        self.assertEqual(bin_search(2, 0, len(solo), solo), 0)
 
 
 
